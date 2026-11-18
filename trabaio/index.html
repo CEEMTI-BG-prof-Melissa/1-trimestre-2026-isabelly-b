@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EducaHorários</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- TELA DE LOGIN -->
+    <div class="container" id="login">
+
+        <div class="logo">🎓</div>
+
+        <h1>EducaHorários</h1>
+        <p>Sistema de Gestão Escolar</p>
+
+        <form onsubmit="entrar(event)">
+
+            <label>E-mail institucional</label>
+            <input type="email" id="email"
+                   placeholder="Digite seu e-mail" required>
+
+            <label>Senha</label>
+            <input type="password" id="senha"
+                   placeholder="Digite sua senha" required>
+
+            <button type="submit">Entrar</button>
+
+        </form>
+
+        <div id="mensagem"></div>
+
+    </div>
+
+
+    <!-- TELA DO ALUNO -->
+    <div class="painel" id="telaAluno">
+
+        <h1>🎓 Portal do Aluno</h1>
+        <p>Bem-vindo ao seu portal escolar!</p>
+
+        <h2>Meu horário escolar</h2>
+
+        <div class="menu">
+
+            <div class="opcao">
+                <h3>📅 Horários</h3>
+                <p>Consulte as aulas da sua turma.</p>
+            </div>
+
+            <div class="opcao">
+                <h3>🔔 Notificações</h3>
+                <p>Veja alterações e substituições.</p>
+            </div>
+
+        </div>
+
+        <button class="sair" onclick="sair()">Sair</button>
+
+    </div>
+
+
+    <!-- TELA DA COORDENADORA -->
+    <div class="painel" id="telaCoordenadora">
+
+        <h1>📋 Painel da Coordenação</h1>
+        <p>Bem-vinda ao gerenciamento escolar!</p>
+
+        <div class="menu">
+
+            <div class="opcao">
+                <h3>📅 Horários</h3>
+                <p>Criar e atualizar horários escolares.</p>
+            </div>
+
+            <div class="opcao">
+                <h3>👩‍🏫 Professores</h3>
+                <p>Cadastrar e consultar professores.</p>
+            </div>
+
+            <div class="opcao">
+                <h3>🔄 Substituições</h3>
+                <p>Gerenciar substituições de aulas.</p>
+            </div>
+
+            <div class="opcao">
+                <h3>🔔 Notificações</h3>
+                <p>Consultar alterações dos horários.</p>
+            </div>
+
+        </div>
+
+        <button class="sair" onclick="sair()">Sair</button>
+
+    </div>
+
+
+    <script>
+
+        // USUÁRIOS DEMONSTRATIVOS
+
+        const usuarios = [
+            {
+                email: "aluno@escola.com",
+                senha: "123456",
+                perfil: "aluno"
+            },
+            {
+                email: "coordenadora@escola.com",
+                senha: "123456",
+                perfil: "coordenadora"
+            }
+        ];
+
+
+        // FUNÇÃO DE LOGIN
+
+        function entrar(event) {
+
+            event.preventDefault();
+
+            let email = document.getElementById("email")
+                .value.trim().toLowerCase();
+
+            let senha = document.getElementById("senha").value;
+
+            let mensagem = document.getElementById("mensagem");
+
+            let usuario = usuarios.find(u =>
+                u.email === email && u.senha === senha
+            );
+
+            if (!usuario) {
+                mensagem.innerHTML = "E-mail ou senha incorretos!";
+                return;
+            }
+
+            document.getElementById("login").style.display = "none";
+
+            if (usuario.perfil === "aluno") {
+                document.getElementById("telaAluno").style.display = "block";
+            }
+
+            else if (usuario.perfil === "coordenadora") {
+                document.getElementById("telaCoordenadora").style.display = "block";
+            }
+
+        }
+
+
+        // FUNÇÃO SAIR
+
+        function sair() {
+
+            document.getElementById("telaAluno").style.display = "none";
+
+            document.getElementById("telaCoordenadora").style.display = "none";
+
+            document.getElementById("login").style.display = "block";
+
+            document.getElementById("email").value = "";
+
+            document.getElementById("senha").value = "";
+
+            document.getElementById("mensagem").innerHTML = "";
+
+        }
+
+    </script>
+
+</body>
+</html>
