@@ -1,0 +1,150 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background: #f0f3f8;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* TELA DE LOGIN */
+
+.container {
+    background: white;
+    width: 90%;
+    max-width: 420px;
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 5px 25px #0002;
+    text-align: center;
+}
+
+.logo {
+    font-size: 55px;
+    margin-bottom: 10px;
+}
+
+h1 {
+    color: #172b4d;
+    margin-bottom: 10px;
+}
+
+p {
+    color: #777;
+    margin-bottom: 25px;
+}
+
+label {
+    display: block;
+    text-align: left;
+    margin-bottom: 7px;
+    font-weight: bold;
+    color: #333;
+}
+
+input {
+    width: 100%;
+    padding: 13px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    margin-bottom: 18px;
+    font-size: 15px;
+}
+
+input:focus {
+    outline: none;
+    border-color: #2864ad;
+}
+
+button {
+    width: 100%;
+    padding: 14px;
+    background: #2864ad;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #174b87;
+}
+
+#mensagem {
+    color: red;
+    margin-top: 15px;
+}
+
+/* TELAS INTERNAS */
+
+.painel {
+    display: none;
+    width: 95%;
+    max-width: 850px;
+    background: white;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 5px 25px #0002;
+}
+
+.painel h1 {
+    margin-bottom: 20px;
+}
+
+.menu {
+    display: grid;
+    grid-template-columns: repeat(
+        auto-fit,
+        minmax(180px, 1fr)
+    );
+    gap: 15px;
+    margin-top: 25px;
+}
+
+.opcao {
+    background: #f0f4fa;
+    padding: 25px;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.opcao h3 {
+    color: #2864ad;
+    margin-bottom: 10px;
+}
+
+.sair {
+    background: #c0392b;
+    margin-top: 25px;
+    max-width: 150px;
+}
+
+.sair:hover {
+    background: #922b21;
+}
+
+/* RESPONSIVIDADE */
+
+@media (max-width: 600px) {
+
+    .container {
+        padding: 25px;
+    }
+
+    .painel {
+        padding: 20px;
+    }
+
+    .menu {
+        grid-template-columns: 1fr;
+    }
+
+}
